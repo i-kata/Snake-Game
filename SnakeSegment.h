@@ -13,9 +13,10 @@ private:
 
 public:
     SnakeSegment(Location & loc);
-    void moveSegment(Location & loc);
+    void moveHead(Location & loc);
     sf::RectangleShape getSegment();
     Location getLocation();
+    void update(Location loc);
 };
 
 

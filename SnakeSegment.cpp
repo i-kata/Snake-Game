@@ -7,11 +7,17 @@ SnakeSegment::SnakeSegment(Location & loc) : segmentLoc(loc)
     segment.setPosition(segmentLoc.x, segmentLoc.y);
 }
 
-void SnakeSegment::moveSegment(Location & loc)
+void SnakeSegment::moveHead(Location & loc)
 {
     segmentLoc.x += loc.x;
     segmentLoc.y += loc.y;
     segment.setPosition(segmentLoc.x, segmentLoc.y);
+}
+
+void SnakeSegment::update(Location loc)
+{
+    segmentLoc.x = loc.x;
+    segmentLoc.y = loc.y;
 }
 
 sf::RectangleShape SnakeSegment::getSegment()
@@ -23,3 +29,4 @@ Location SnakeSegment::getLocation()
 {
     return segmentLoc;
 }
+
