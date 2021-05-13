@@ -8,19 +8,18 @@ int main()
 {
     GameController controller;
     bool gameRunning = true;
-    int score = 0;
 
     sf::RenderWindow window(sf::VideoMode(600, 600), "Snake");
     std::vector<SnakeSegment> Snake;
 
     Location headLoc; headLoc.x = 270; headLoc.y = 270;
     SnakeSegment head(headLoc);
-    Snake.push_back(head);
+    Snake.emplace_back(head);
 
     Fruit fruit;
     fruit.moveFruit(Snake);
 
-    window.setFramerateLimit(10);
+    window.setFramerateLimit(5);
 
     Location speed; speed.x = 0; speed.y = 0;
 
@@ -30,17 +29,27 @@ int main()
         while (gameRunning)
         {
 
+            controller.controlEvents(gameRunning, speed, event, window);
+
+            for(size_t i = Snake.size(); i > 0; i--)
+            {
+                Snake[i].update(Snake[i - 1].getLocation());
+            }
+
             Snake[0].moveHead(speed);
 
-            controller.controlEvents(gameRunning, speed, event, window);
+            controller.collisionDetector(Snake, gameRunning);
+
+            controller.foodPickedDetector(Snake, fruit);
 
             controller.overBoardDetector(Snake, gameRunning);
 
-            controller.foodPickedDetector(Snake, fruit, score);
-
             window.clear();
+
             controller.draw(Snake, window);
+
             window.draw(fruit.getShape());
+
             window.display();
 
         }

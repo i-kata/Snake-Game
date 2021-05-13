@@ -14,7 +14,7 @@ public:
     Fruit();
     sf::RectangleShape getShape();
     Location getLocation();
-    void moveFruit(std::vector<SnakeSegment> vec);
+    void moveFruit(std::vector<SnakeSegment> & vec);
 };
 
 

@@ -16,7 +16,7 @@ Location Fruit::getLocation()
     return fruitLoc;
 }
 
-void Fruit::moveFruit(std::vector<SnakeSegment> vec)
+void Fruit::moveFruit(std::vector<SnakeSegment> & vec)
 {
     bool fruitMoved = false;
 

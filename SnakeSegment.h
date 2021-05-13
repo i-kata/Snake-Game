@@ -8,12 +8,12 @@
 class SnakeSegment
 {
 private:
-    sf::RectangleShape segment;
     Location segmentLoc;
+    sf::RectangleShape segment;
 
 public:
     SnakeSegment(Location & loc);
-    void moveHead(Location & loc);
+    void moveHead(Location loc);
     sf::RectangleShape getSegment();
     Location getLocation();
     void update(Location loc);
