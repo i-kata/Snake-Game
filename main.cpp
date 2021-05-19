@@ -19,7 +19,7 @@ int main()
     Fruit fruit;
     fruit.moveFruit(Snake);
 
-    window.setFramerateLimit(5);
+    window.setFramerateLimit(10);
 
     Location speed; speed.x = 0; speed.y = 0;
 
@@ -31,7 +31,7 @@ int main()
 
             controller.controlEvents(gameRunning, speed, event, window);
 
-            for(size_t i = Snake.size(); i > 0; i--)
+            for(size_t i = Snake.size() - 1; i > 0; i--)
             {
                 Snake[i].update(Snake[i - 1].getLocation());
             }

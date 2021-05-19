@@ -36,6 +36,10 @@ void GameController::controlEvents(bool & gameRunning, Location &speed, sf::Even
                     speed.x = 0;
                     speed.y = 30;
                 }
+                break;
+
+            default:
+                break;
         }
     }
 }

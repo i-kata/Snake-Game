@@ -12,7 +12,7 @@ private:
     sf::RectangleShape segment;
 
 public:
-    SnakeSegment(Location & loc);
+    explicit SnakeSegment(Location & loc);
     void moveHead(Location loc);
     sf::RectangleShape getSegment();
     Location getLocation();

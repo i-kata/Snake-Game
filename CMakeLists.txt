@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.1)
 project(test-sfml)
 
 set(CMAKE_CXX_STANDARD 14)
-add_compile_options(-Wall -Wextra)
+add_compile_options(-Wall -pedantic -Wextra -Werror=return-type -Werror=array-bounds -Werror=parentheses)
 
 # ustawienia SFML-a dla Linuksa/MacOS i Windows - proszę zostawić obie konfiguracje,
 # CMake automatycznie użyje właściwej
