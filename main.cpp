@@ -11,12 +11,12 @@ int main()
     bool gameRunning = false;
 
     sf::Texture texture;
-    texture.loadFromFile("C:\\Users\\Iwan\\OneDrive\\Pulpit\\resources\\background.png");
+    texture.loadFromFile("C:\\Users\\Iwan\\CLionProjects\\SNAKE\\resources\\background.png");
     sf::Sprite sprite;
     sprite.setTexture(texture);
 
     sf::Font font;
-    font.loadFromFile("C:\\Users\\Iwan\\OneDrive\\Pulpit\\resources/font.ttf");
+    font.loadFromFile("C:\\Users\\Iwan\\CLionProjects\\SNAKE\\resources\\font.ttf");
     sf::Text text;
     text.setFont(font);
 
