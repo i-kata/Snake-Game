@@ -51,7 +51,6 @@ void GameController::overBoardDetector(std::vector<SnakeSegment> Snake, bool & g
         gameRunning = false;
         std::cout << "Game Over" << std::endl;
         std::cout << "Score: " << Snake.size() - 1 << std::endl;
-
     }
 }
 
@@ -83,6 +82,51 @@ void GameController::collisionDetector(std::vector<SnakeSegment> &Snake, bool & 
     {
         if (Snake[0].getLocation().x == Snake[i].getLocation().x and Snake[0].getLocation().y == Snake[i].getLocation().y)
             gameRunning = false;
+    }
+}
+
+void GameController::controlEventsGF(sf::RenderWindow &window, sf::Event &event1, bool &gameRunning)
+{
+    while (window.pollEvent(event1))
+    {
+        switch (event1.type)
+        {
+            case sf::Event::Closed:
+            {
+                window.close();
+                exit(0);
+            }
+
+            case sf::Event::MouseButtonPressed:
+            {
+                int mouseX = event1.mouseButton.x;
+                int mouseY = event1.mouseButton.y;
+
+                if (event1.mouseButton.button == sf::Mouse::Left)
+                {
+                    if (mouseX > 200 and mouseX < 400 and mouseY > 200 and mouseY < 250)
+                    {
+                        gameRunning = true;
+                        window.setFramerateLimit(5);
+                    }
+
+                    if (mouseX > 150 and mouseX < 430 and mouseY > 340 and mouseY < 400)
+                    {
+                        gameRunning = true;
+                        window.setFramerateLimit(7);
+                    }
+
+                    if (mouseX > 200 and mouseX < 400 and mouseY > 470 and mouseY < 550)
+                    {
+                        gameRunning = true;
+                        window.setFramerateLimit(9);
+                    }
+                }
+                break;
+            }
+            default:
+                break;
+        }
     }
 }
 

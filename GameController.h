@@ -10,6 +10,7 @@ public:
     void controlEvents(bool & gameRunning, Location & speed, sf::Event & event, sf::RenderWindow & window);
     void overBoardDetector(std::vector<SnakeSegment> Snake, bool & gameRunning);
     void collisionDetector(std::vector<SnakeSegment> & Snake, bool & gameRunning);
+    void controlEventsGF(sf::RenderWindow & window, sf::Event & event, bool & gameRunning);
 };
 
 
